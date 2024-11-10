@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/island-website/static/css/main.98c5be4c.css",
+    "main.js": "/island-website/static/js/main.75ea11da.js",
+    "static/js/453.b9772a1c.chunk.js": "/island-website/static/js/453.b9772a1c.chunk.js",
+    "static/media/movies.png": "/island-website/static/media/movies.b2be0d9d2eab57d5ecdb.png",
+    "static/media/resort.jpg": "/island-website/static/media/resort.403ec8f38bb57161df21.jpg",
+    "static/media/hostel.jpeg": "/island-website/static/media/hostel.85ab572c1210d82addf3.jpeg",
+    "static/media/heli-tour.jpg": "/island-website/static/media/heli-tour.a72bbfcd2b1301ba4fdb.jpg",
+    "static/media/zipline.jpg": "/island-website/static/media/zipline.49b77fd01829b1ecf2a9.jpg",
+    "static/media/danceclub.jpg": "/island-website/static/media/danceclub.abb2fca67f14dbe764dd.jpg",
+    "static/media/art.jpg": "/island-website/static/media/art.e9f9d6786001c4c83544.jpg",
+    "static/media/Taniti.jpg": "/island-website/static/media/Taniti.049dcecd12d0efe135d2.jpg",
+    "static/media/bed-and-breakfast.jpg": "/island-website/static/media/bed-and-breakfast.6fcc00ce674160530b9a.jpg",
+    "static/media/faq-island.jpg": "/island-website/static/media/faq-island.f5593e116c286ceb0859.jpg",
+    "static/media/archi.jpg": "/island-website/static/media/archi.43bdbbc1a27daa9f252e.jpg",
+    "static/media/relax.jpg": "/island-website/static/media/relax.1d293afdf1e05388e180.jpg",
+    "static/media/arcade.jpg": "/island-website/static/media/arcade.0ac11a8989bd21f17385.jpg",
+    "static/media/snorkeling.jpg": "/island-website/static/media/snorkeling.439905df3a0d1b887a5f.jpg",
+    "static/media/rainforest.jpeg": "/island-website/static/media/rainforest.dcc45673fe5cfc68fa3a.jpeg",
+    "static/media/microbrewery.jpeg": "/island-website/static/media/microbrewery.84dda177446059224581.jpeg",
+    "static/media/history-museum.jpeg": "/island-website/static/media/history-museum.8992b33ed9321d3d6395.jpeg",
+    "index.html": "/island-website/index.html",
+    "main.98c5be4c.css.map": "/island-website/static/css/main.98c5be4c.css.map",
+    "main.75ea11da.js.map": "/island-website/static/js/main.75ea11da.js.map",
+    "453.b9772a1c.chunk.js.map": "/island-website/static/js/453.b9772a1c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98c5be4c.css",
+    "static/js/main.75ea11da.js"
+  ]
+}
