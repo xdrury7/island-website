@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import {BrowserRouter, Route, Router, Routes} from 'react-router-dom'
 import './App.css';
+import {Home} from './pages/home_page'
+import { Accomadation } from './pages/accomadations';
+import { Travel } from './pages/travel_page';
+import { Activities } from './pages/activities';
+import { FAQ } from './pages/faq';
+import CustomNavbar from './components/custom_nav';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <CustomNavbar></CustomNavbar>
+        <Routes>
+          <Route path ='/' exact element={<Home />}/>
+          <Route path ='/accomadations'exact element={<Accomadation/>} />
+          <Route path = '/travel' exact element={<Travel/>}/>
+          <Route path = '/activities' exact element={<Activities/>}/>
+          <Route path = '/faq' exact element={<FAQ/>}/>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
