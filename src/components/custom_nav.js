@@ -7,11 +7,11 @@ const CustomNavbar = () => {
     return(
         <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-            <Navbar.Brand as={Link} to="/">Visit Taniti</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/island-website">Visit Taniti</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link as={Link} to='/'>Home</Nav.Link>
+                    <Nav.Link as={Link} to='/island-website'>Home</Nav.Link>
                     <NavDropdown title="Travel" id="basic-nav-dropdown">
                         <NavDropdown.Item as={HashLink} to='/travel#travel-to'>Getting To Taniti</NavDropdown.Item>
                         <NavDropdown.Item as={HashLink} to='/travel#get-around'>On Island Transportation</NavDropdown.Item>
