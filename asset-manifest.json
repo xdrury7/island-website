@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/island-website/static/css/main.98c5be4c.css",
-    "main.js": "/island-website/static/js/main.87e61e32.js",
+    "main.js": "/island-website/static/js/main.dfd87688.js",
     "static/js/453.b9772a1c.chunk.js": "/island-website/static/js/453.b9772a1c.chunk.js",
     "static/media/movies.png": "/island-website/static/media/movies.b2be0d9d2eab57d5ecdb.png",
     "static/media/resort.jpg": "/island-website/static/media/resort.403ec8f38bb57161df21.jpg",
@@ -22,11 +22,11 @@
     "static/media/history-museum.jpeg": "/island-website/static/media/history-museum.8992b33ed9321d3d6395.jpeg",
     "index.html": "/island-website/index.html",
     "main.98c5be4c.css.map": "/island-website/static/css/main.98c5be4c.css.map",
-    "main.87e61e32.js.map": "/island-website/static/js/main.87e61e32.js.map",
+    "main.dfd87688.js.map": "/island-website/static/js/main.dfd87688.js.map",
     "453.b9772a1c.chunk.js.map": "/island-website/static/js/453.b9772a1c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98c5be4c.css",
-    "static/js/main.87e61e32.js"
+    "static/js/main.dfd87688.js"
   ]
 }
