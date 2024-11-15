@@ -1,5 +1,6 @@
-import { Col, Container, Row, Card } from "react-bootstrap";
-import CustomNavbar from '../components/custom_nav'
+import { Col, Container, Row, Card, ButtonGroup, Button, Form } from "react-bootstrap";
+import React, { useState } from 'react';
+
 import Bowling from '../images/bowling.jpeg'
 import BoatTour from '../images/boat-tour.jpeg'
 import RainForest from '../images/rainforest.jpeg'
@@ -125,6 +126,51 @@ export function Activities() {
         }
     ];
 
+    const categories = {
+        "Nature & Adventure": ["Beach Relaxation", "Rainforest Exploration", "Volcano Visit", "Snorkeling Adventures", "Rainforest Zip-lining", "Helicopter Tours"],
+        "Culture & Education": ["Local History Museum", "Art Gallery Tours", "Native Architecture Walking Tour"],
+        "Water Activities": ["Chartered Fishing Tours", "Snorkeling Adventures", "Island Boat Tours"],
+        "Entertainment": ["Dance Club", "Movie Theater", "Arcade Gaming", "Bowling"],
+        "Food & Drink": ["Microbrewery Tour"],
+        "Coming Soon": ["Coming Soon: Golf"]
+    };
+
+    const priceRanges = {
+        "Free": activity => activity.price === "FREE",
+        "Under $25": activity => {
+            const price = parseInt(activity.price);
+            return price > 0 && price <= 25;
+        },
+        "$26-$75": activity => {
+            const price = parseInt(activity.price);
+            return price > 25 && price <= 75;
+        },
+        "Over $75": activity => {
+            const price = parseInt(activity.price);
+            return price > 75;
+        }
+    };
+
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const [selectedPriceRange, setSelectedPriceRange] = useState("All");
+    const [searchTerm, setSearchTerm] = useState("");
+
+    // Filter activities based on selected criteria
+    const filteredActivities = activities.filter(activity => {
+        const matchesCategory = selectedCategory === "All" ||
+            Object.entries(categories).some(([cat, activities]) =>
+                cat === selectedCategory && activities.includes(activity.title)
+            );
+
+        const matchesPriceRange = selectedPriceRange === "All" ||
+            (priceRanges[selectedPriceRange] && priceRanges[selectedPriceRange](activity));
+
+        const matchesSearch = activity.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            activity.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+        return matchesCategory && matchesPriceRange && matchesSearch;
+    });
+
     return (
         <Container>
             <Row className="my-4">
@@ -133,8 +179,66 @@ export function Activities() {
                 </Col>
             </Row>
 
+            {/* Search Bar */}
+            <Row className="mb-4">
+                <Col md={6} className="mx-auto">
+                    <Form.Control
+                        type="search"
+                        placeholder="Search activities..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </Col>
+            </Row>
+
+            {/* Filter Buttons */}
+            <Row className="mb-4">
+                <Col xs={12} className="text-center mb-3">
+                    <h5>Categories</h5>
+                    <ButtonGroup className="flex-wrap">
+                        <Button
+                            variant={selectedCategory === "All" ? "primary" : "outline-primary"}
+                            onClick={() => setSelectedCategory("All")}
+                        >
+                            All
+                        </Button>
+                        {Object.keys(categories).map(category => (
+                            <Button
+                                key={category}
+                                variant={selectedCategory === category ? "primary" : "outline-primary"}
+                                onClick={() => setSelectedCategory(category)}
+                            >
+                                {category}
+                            </Button>
+                        ))}
+                    </ButtonGroup>
+                </Col>
+
+                <Col xs={12} className="text-center">
+                    <h5>Price Range</h5>
+                    <ButtonGroup className="flex-wrap">
+                        <Button
+                            variant={selectedPriceRange === "All" ? "primary" : "outline-primary"}
+                            onClick={() => setSelectedPriceRange("All")}
+                        >
+                            All
+                        </Button>
+                        {Object.keys(priceRanges).map(range => (
+                            <Button
+                                key={range}
+                                variant={selectedPriceRange === range ? "primary" : "outline-primary"}
+                                onClick={() => setSelectedPriceRange(range)}
+                            >
+                                {range}
+                            </Button>
+                        ))}
+                    </ButtonGroup>
+                </Col>
+            </Row>
+
+            {/* Activity Cards */}
             <Row xs={1} md={2} lg={3} className="g-4">
-                {activities.map((activity, idx) => (
+                {filteredActivities.map((activity, idx) => (
                     <Col key={idx}>
                         <Card className="h-100">
                             <Card.Img variant="top" src={activity.image} />
@@ -147,6 +251,14 @@ export function Activities() {
                     </Col>
                 ))}
             </Row>
+
+            {filteredActivities.length === 0 && (
+                <Row className="my-4">
+                    <Col className="text-center">
+                        <h4>No activities found matching your criteria</h4>
+                    </Col>
+                </Row>
+            )}
         </Container>
     );
 }
